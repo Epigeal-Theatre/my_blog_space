@@ -9,16 +9,164 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #4C4C4C/*#5f788a*/;
 }
 
-.site-header .navbar-nav .nav-link {
+
+
+
+.navbar-brand{
+
+  display: inline-block;
+  padding: 10px 20px;
+  
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none; /* Prevent underline on links */
+  transition: color 0.3s, transform 0.3s, font-style 0.3s, font-weight 0.3s; /* Transition for smooth effects */
+  
+
+  bottom: 0;
+  right: 0;
+  width: absolute;
+  height: 100%;
+  border-bottom: 8px solid transparent;
+  border-right: 1px solid transparent;
+  animation: snake-light 9s ease-in-out infinite;
+  animation-delay: 3s;
+
+  transform: scale(1.2); /* Enlarge text on hover */
+  font-style: italic; /* Italicize text on hover */
+  font-weight: bold; /* Make text bold on hover */
+  
+
+    
+    
+  
+  
+  border-right-color: #00ff00; /* Neon green */
+  border-bottom-color: #00ffff; /* Neon blue */
+  
+}
+
+
+@keyframes snake-light {
+    0%, 100% {
+        border-color: transparent;
+    }
+    25% {
+        border-color: #ff00ff; /* Neon pink */
+    }
+    50% {
+        border-color: #00ff00; /* Neon green */
+    }
+    75% {
+        border-color: #00ffff; /* Neon blue */
+    }
+    100% {
+        border-color: #ffff00; /* Neon yellow */
+    }
+}
+/*.site-header .navbar-nav .nav-link {
   color: #cbd5db;
 }
 
 .site-header .navbar-nav .nav-link:hover {
   color: #ffffff;
+}*/
+
+
+.site-header .navbar-nav .nav-link {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    position: relative;
+    font-size: 24px;
+    font-weight: bold; /* Initial bold font */
+    cursor: pointer;
+    text-decoration: none; /* Prevent underline on links */
+    transition: color 0.3s, transform 0.3s, font-style 0.3s, font-weight 0.3s; /* Transition for smooth effects */
 }
+
+.site-header .navbar-nav .nav-link::before,
+.site-header .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.site-header .navbar-nav .nav-link::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid transparent;
+    border-right: 2px solid transparent;
+    animation: snake-light 2s linear infinite;
+    animation-play-state: paused; /* Pause animation by default */
+}
+
+.site-header .navbar-nav .nav-link::after {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+    animation: snake-light 2s linear infinite;
+    animation-delay: 1s;
+    animation-play-state: paused; /* Pause animation by default */
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    transform: scale(1.1); /* Enlarge text */
+    font-style: italic; /* Italicize text */
+    font-weight: bold; /* Make text bold */
+}
+
+.site-header .navbar-nav .nav-link:hover::before,
+.site-header .navbar-nav .nav-link:hover::after {
+    animation-play-state: running; /* Start animation on hover */
+}
+
+.site-header .navbar-nav .nav-link:hover::before {
+    border-top-color: #ff00ff; /* Neon pink */
+    border-right-color: #00ff00; /* Neon green */
+}
+
+.site-header .navbar-nav .nav-link:hover::after {
+    border-bottom-color: #00ffff; /* Neon blue */
+    border-left-color: #ffff00; /* Neon yellow */
+}
+
+.site-header .navbar-nav .nav-link::before,
+.site-header .navbar-nav .nav-link::after {
+    border-color: transparent; /* Reset border color */
+}
+
+@keyframes snake-light {
+    0%, 100% {
+        border-color: transparent;
+    }
+    25% {
+        border-color: #ff00ff; /* Neon pink */
+    }
+    50% {
+        border-color: #00ff00; /* Neon green */
+    }
+    75% {
+        border-color: #00ffff; /* Neon blue */
+    }
+    100% {
+        border-color: #ffff00; /* Neon yellow */
+    }
+}
+}/*end*/
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
