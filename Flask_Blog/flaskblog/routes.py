@@ -160,11 +160,16 @@ def user_posts(username):
 
 def send_reset_email(user):
 	token = user.get_reset_token()
-	msg = Message('Password Reset Request', sender='noreply@demo.com', recipients=[user.email])
-	msg.body =  f'''To Reset your password, visit the fiollowing link:
+	msg = Message('Password Reset Request', sender='dantestdevs@gmail.com', recipients=[user.email])
+	msg.body =  f'''To Reset your password, visit the following link:
 {url_for('reset_token', token=token, _external=True)}
 
-If you did not make this request, simply ignore this email and no changes will be made'''
+If you did not make this request, ignore this email and no changes will be made'''
+
+	try:
+		mail.send(msg)
+	except Exception as e:
+		print(f"Failed to send email: {e}")
 
 
 
