@@ -3,6 +3,10 @@ blinker==1.8.2
 click==8.1.7
 dnspython==2.6.1
 email_validator==2.2.0
+<<<<<<< HEAD
+=======
+Flask
+>>>>>>> f95ca3f6da2a7f2ac1a07bbdd6ee53c6bbb6eb72
 Flask-Bcrypt==1.0.1
 Flask-Login==0.6.3
 Flask-Mail==0.10.0
