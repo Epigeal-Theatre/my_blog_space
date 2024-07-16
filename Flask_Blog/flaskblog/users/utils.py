@@ -6,6 +6,19 @@ from flask_mail import Message
 from flaskblog import mail
 
 def save_picture(form_picture):
+	"""
+    Function to save a profile picture uploaded via a form.
+
+    Parameters:
+    -----------
+    form_picture : FileStorage
+        The picture file uploaded via the form.
+
+    Returns:
+    --------
+    picture_fn : str
+        The filename of the saved picture.
+    """
 	random_hex = secrets.token_hex(8)
 	_, f_ext = os.path.splitext(form_picture.filename)
 	picture_fn = random_hex + f_ext
@@ -20,6 +33,16 @@ def save_picture(form_picture):
 
 
 def send_reset_email(user):
+	"""
+    Function to send a password reset email to the user.
+
+    Parameters:
+    -----------
+    user : User
+        The user object for whom the password reset email is being sent.
+
+    Sends an email with a password reset link to the user's registered email address.
+    """
 	token = user.get_reset_token()
 	msg = Message('Password Reset Request', sender='dantestdevs@gmail.com', recipients=[user.email])
 	msg.body =  f'''To Reset your password, visit the following link:
